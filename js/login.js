@@ -32,7 +32,7 @@
         /** Validate Token  */
 
         async function validateToken(token){
-            const response = await axios.get("http://localhost:8080/verifyuser?token="+token) ;
+            const response = await axios.get("https://jobsprovider.herokuapp.com/verifyuser?token="+token) ;
             if(response.data.error){
                return console.log("error : "+response.data.error)
             }
@@ -66,7 +66,7 @@
                 password : document.getElementById("password").value 
             } ;
 
-           const response = await axios.post("http://localhost:8080/users/login", credential);
+           const response = await axios.post("https://jobsprovider.herokuapp.com/users/login", credential);
 
            if(response.data.error){
                console.log("something went wrong : "+ response.data.error)
