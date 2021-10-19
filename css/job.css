@@ -1,0 +1,43 @@
+body {
+    background-color: #344a72;
+    font-family: "Roboto", sans-serif;
+  }
+
+
+.edit-job-form{
+    background-color: #3f3160;
+    min-height: 500px;
+    width: 400px;
+    margin: 40px auto;
+
+}
+#edit-job-form input{
+    background-color : rgb(27 , 112 137);
+    border: 0;
+    width: 200px;
+    height: 50px;
+    padding: 0 20px;
+    margin: 20px;
+    font-size: 18px;
+    border-radius: 10 px;
+    color: #fff;
+}
+#job-form input::placeholder{
+    color: rgba(255,255,255,0.5);
+
+
+}
+#job-form input :focus, #job-form button :focus{
+    outline: none;
+}
+#job-form button{
+    height: 50px;
+    width: 80px;
+    border-radius: 5px;
+    border:0;
+    background-color: rgb(202, 156, 24);
+    cursor: pointer;
+    font-weight:bolder;
+    color:#fff;
+
+}
