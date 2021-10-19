@@ -16,7 +16,7 @@ document.getElementById("signup-form").addEventListener("submit", async (e)=>{
         password : document.getElementById("password").value 
     } ;
 
-   const response = await axios.post("http://localhost:8080/users/adduser", newUser);
+   const response = await axios.post("https://jobsprovider.herokuapp.com/users/adduser", newUser);
 
    if(response.data.error){
        console.log("something went wrong : "+ response.data.error)

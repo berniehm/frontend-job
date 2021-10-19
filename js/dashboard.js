@@ -69,7 +69,7 @@ document.querySelector('#job-form').addEventListener('submit', async (e) => {
     if(start === '' || end === '' || details === ''){
         UI.showNotification('All fields are required!', 'danger');
     }else{
-       const response = await axios.post("http://localhost:8080/jobs/addjob?token="+JSON.parse(localStorage.getItem("jobs-data")).token,
+       const response = await axios.post("https://jobsprovider.herokuapp.com/jobs/addjob?token="+JSON.parse(localStorage.getItem("jobs-data")).token,
        {start, end, details, notes}) ;
        if(response.data.error){
            console.log(response.data.error)
@@ -85,7 +85,7 @@ document.querySelector('#job-form').addEventListener('submit', async (e) => {
 
 
 async function deleteJob(id){
-    const response = await axios.delete("http://localhost:8080/jobs/"+id);
+    const response = await axios.delete("https://jobsprovider.herokuapp.com/jobs/"+id);
 
     if(response.data.error){
         console.log("unable to delete job")
@@ -97,7 +97,7 @@ async function deleteJob(id){
 }
 
 async function displayJobs(token){
-    const res = await axios.post("http://localhost:8080/user/jobs?token="+token) ;
+    const res = await axios.post("https://jobsprovider.herokuapp.com/user/jobs?token="+token) ;
     if(res.data.error){
         console.log(res.data.error);
     }else{
@@ -115,7 +115,7 @@ async function displayJobs(token){
                 <td>${time_diff(job.start,job.end)}</td>
                 <td>${job.details}</td>
                 <td>${job.notes}</td>
-                <td><a href = "http://localhost:8080/jobs/getdocument/${job._id.toString()}">${doc}</a></td>
+                <td><a href = "https://jobsprovider.herokuapp.com/jobs/getdocument/${job._id.toString()}">${doc}</a></td>
                 <td><button onclick="deleteJob('${job._id.toString()}')">Delete</button></td>
                 <td><a class="nav-link" href="./jobssection.html">edit</a></td>
               </tr>` ;

@@ -4,7 +4,7 @@
 /** Validate Token */
 
 async function validateToken(token){
-    const response = await axios.get("http://localhost:8080/verifyuser?token="+token) ;
+    const response = await axios.get("https://jobsprovider.herokuapp.com/verifyuser?token="+token) ;
     if(response.data.error){
        return console.log("error : "+response.data.error)
     }
@@ -37,7 +37,7 @@ document.getElementById("logout").addEventListener("click", (e)=>{
 /** get users list */
 
 async function getUsers(){
-   const response = await axios.post("http://localhost:8080/admin/users?token="+JSON.parse(localStorage.getItem("jobs-data")).token);
+   const response = await axios.post("https://jobsprovider.herokuapp.com/admin/users?token="+JSON.parse(localStorage.getItem("jobs-data")).token);
    if(response.data.error){
        console.log("Error : "+ response.data.error);
    }else{
@@ -60,7 +60,7 @@ async function getUsers(){
     users.forEach(async (user) => {
         console.log(user)
         /** check status of user */
-        const response =  await axios.post("http://localhost:8080/user/currentjob/"+  user._id.toString());
+        const response =  await axios.post("https://jobsprovider.herokuapp.com/user/currentjob/"+  user._id.toString());
         console.log(response.data);
 
         /** add row to rows */
@@ -143,7 +143,7 @@ function displayJobs(jobs){
             <td>${end ? calcWorkingHours(start, end) : start}</td>
             <td>${details}</td>
             <td>${notes}</td>
-            <td><a href = "http://localhost:8080/jobs/getdocument/${_id.toString()}">${doc}</a></td>
+            <td><a href = "https://jobsprovider.herokuapp.com/jobs/getdocument/${_id.toString()}">${doc}</a></td>
             <td><button onclick="editReport('${_id.toString()}')">Edit</button></td>
             <td><button onclick="uploadReport('${job._id.toString()}')">Upload</button></td>
             
@@ -157,7 +157,7 @@ function displayJobs(jobs){
 
 /** get Jobs of user */
 async function userReport(id){
-  const response = await axios.post("http://localhost:8080/user/"+id+"/jobs?token="+JSON.parse(localStorage.getItem("jobs-data")).token);
+  const response = await axios.post("https://jobsprovider.herokuapp.com/user/"+id+"/jobs?token="+JSON.parse(localStorage.getItem("jobs-data")).token);
        displayJobs(response.data)
 }
 
@@ -226,7 +226,7 @@ document.getElementById('edit-job-form').addEventListener('submit', async (e) =>
         UI.showNotification('All fields are required!', 'danger');
     }else{
         console.log(start,end,breakson,breaksover,details,notes, document.getElementById("job_id").value);
-       const response = await axios.put("http://localhost:8080/jobs/updatejob",{
+       const response = await axios.put("https://jobsprovider.herokuapp.com/jobs/updatejob",{
            start, end, details, breakson,breaksover , notes, 
            job_id : document.getElementById("job_id").value,
            token:JSON.parse(localStorage.getItem("jobs-data")).token
@@ -269,7 +269,7 @@ console.log("add job-form submitted")
         console.log("user did not provide any")
     }else{
         console.log(description,customer_name,price,estimated_time, document.getElementById("user_id").value);
-       const response = await axios.post("http://localhost:8080/jobs/"+user_id+"/addjob?token="+JSON.parse(localStorage.getItem("jobs-data")).token,{
+       const response = await axios.post("https://jobsprovider.herokuapp.com/jobs/"+user_id+"/addjob?token="+JSON.parse(localStorage.getItem("jobs-data")).token,{
        details:description,
        price,
        estimated_time
