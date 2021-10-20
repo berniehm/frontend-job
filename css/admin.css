@@ -2,9 +2,10 @@
 /*This will allow me to style elements on html pages when linked to it*/
 
 body {
-  background-color: lightblue;
+  background-color:#002a3f;
   font-family: "Roboto", sans-serif;
-}
+padding :0;
+margin:0;}
 
 .form-group{
   width: 360px;
@@ -26,7 +27,11 @@ h4 {
 
 .users{
   
-  background-color: paleturquoise;
+  background-color: white;
+  left:0;
+  right:0;
+  font-color: white;
+
 }
 
 form label {
@@ -34,6 +39,8 @@ form label {
   margin-top: 20px;
   font-size: 18px;
 }
+  
+
 
 form input {
   width: 100%;
@@ -42,6 +49,7 @@ form input {
   border: 1px solid gray;
   border-radius: 6px;
   outline: none;
+ 
 }
 input[type="button"] {
   width: 320px;
@@ -51,6 +59,9 @@ input[type="button"] {
   background-color: #49c1a2;
   color: white;
   font-size: 18px;
+  left: 0;
+  line-height: 0%;
+  right: 2px;
 }
 p {
   text-align: center;
