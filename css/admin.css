@@ -30,14 +30,19 @@ h4 {
   background-color: white;
   left:0;
   right:0;
-  font-color: white;
+  position: relative;
+  top: 100px;
+  z-index: 1000;
 
 }
 
-form label {
+.form label {
   display: flex;
   margin-top: 20px;
   font-size: 18px;
+  z-index: 500;
+  position: relative;
+  top: 100px;
 }
   
 
@@ -62,6 +67,9 @@ input[type="button"] {
   left: 0;
   line-height: 0%;
   right: 2px;
+  z-index: 1000;
+  position: relative;
+  top: 100px;
 }
 p {
   text-align: center;
@@ -75,6 +83,9 @@ p {
   margin-top: -10px;
 }
 .para-2 a {
-  color: #49c1a2;
+  color: white;
+}
+.logout {
+
 }
 
