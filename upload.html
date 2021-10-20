@@ -1,49 +1,21 @@
 <!DOCTYPE html>
-<html>
-<!--This is part of  the website where a user can upload documents that are necessary to be filled out for job 
-Any staff that are signed up can login and access these files if necessary-->
 
 <head>
-  <title> Upload,  Download </title>
-  <link rel = "stylesheet" type="text/css" href= "css/home.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+  <title>Drag and Drop File Upload</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <link rel="shortcut icon" href="/assets/favicon.ico">
+  <link rel="stylesheet" href="./css/upload.css">
+  <h1> Upload-Documents</h1>
+  You can view these files again once admin has acessed the files .
 </head>
+
 <body>
-
- 
-  <link rel="stylesheet" href="css/upload.css">
- <div class= "m-2 p-5 w-50 text-center">
-   <form class="row g-3">
-    <div class="mb-3">
-      <label for="formFileMultiple" class="form-label">Upload Document</label>
-      <input class="form-control" type="file" id="real-file" multiple>
-      <embed src = "" type = "application/pdf" id="emb" width="500" height="500" style="display:none"/>
-    </div>
-  <div class="col-auto">
-   <a href="images/bill.doc" id= "download" >Download</a>
+  <div class="drop-zone">
+    <span class="drop-zone__prompt">Drop file here or click to upload</span>
+    <input type="file" name="myFile" class="drop-zone__input">
   </div>
-</form></div>
-
-     <!--This will allow the document to be uploaded to the website
-    using the actual path of the file the 0 is there because its only one file -->
- <script>
-   document.getElementById("real-file").addEventListener("change",(e)=>{
-     let doc_path =URL.createObjectURL(e.target.files[0]);
-     console.log(doc_path);
-     document.getElementById("emb").src=doc_path;
-     document.getElementById("download").href=doc_path;
-     document.getElementById("emb").style.display="block";
-   })
-  
-  
- </script>
-
- 
- <a class = "btn btn-primary mt-2" href="./index.html"> Home</a>
 
   
-  
- 
-
+  <script src="./js/upload.js"></script>
 </body>
-</html>
