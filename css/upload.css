@@ -1,3 +1,11 @@
+.body {
+  background-color: blue;
+
+}
+.col-auto{
+  background-color: blue;
+
+}
 .drop-zone {
   max-width: 200px;
   height: 200px;
