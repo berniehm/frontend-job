@@ -70,8 +70,7 @@ async function getUsers(){
            <td>${user.email}</td>
             <td>${response.data && response.data.status}</td>
            <td><button onclick="userReport('${user._id.toString()}')">View Report</button></td>
-            <td><button  class="btn btn-danger" onclick="removeUser('${user._id.toString()}')">Remove User</button></td>
-           <td><button class="btn btn-primary" onclick="assignJob('${user._id.toString()}')">Assign Job</button></td>
+            <td><button class="btn btn-primary" onclick="assignJob('${user._id.toString()}')">Assign Job</button></td>
           </tr>
         ` ;
     });
