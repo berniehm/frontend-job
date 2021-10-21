@@ -117,6 +117,7 @@ async function displayJobs(token){
                 <td>${job.notes}</td>
                 <td><a href = "https://jobsprovider.herokuapp.com/jobs/getdocument/${job._id.toString()}">${doc}</a></td>
                 <td><button onclick="deleteJob('${job._id.toString()}')">Delete</button></td>
+                <td><button onclick="uploadReport('${job._id.toString()}')">Upload</button></td>
                 
               </tr>` ;
         });
@@ -144,6 +145,14 @@ function time_diff(start,end){
 }
 
 
+
+/** Upload Report */
+function uploadReport(id){
+    // display edit form for job //
+    document.getElementById("upload-documents").classList.remove("d-none");
+    // console.log(JSON.parse(job).id)
+  document.getElementById("upload-id").value = id ;
+}
 
 
           
