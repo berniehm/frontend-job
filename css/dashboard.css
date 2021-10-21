@@ -3,7 +3,7 @@ body {
     font-family: "Roboto", sans-serif;
   }
   
-  .job {
+  .job-list {
     width: 360px;
     height: 620px;
     margin: auto;
@@ -65,5 +65,37 @@ body {
   }
 .nav-item{
     color:black;
+}
+.jobs-list{background-color: white;
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: large;
+  min-width: 400px;
+
+}
+.table thead tr{
+  background-color: #009879;
+  text-align: left;
+}
+.table  th,
+.table  tr{
+  padding: 12px 15px;
+
+}
+.table{
+  padding-bottom: 0%;}
+
+.table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+  }
+  .table tbody tr {
+    border-bottom: 1px solid #dddddd;
+    background-color: #009879;
+    
+
+
+}
+.upload-documents{
+  padding-bottom: 0%
 }
   
