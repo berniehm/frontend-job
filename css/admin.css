@@ -105,6 +105,11 @@ p {
 }
 .users-body{
   padding-bottom: 0%;}
+  .users-table  th,
+  .users-table  tr{
+    width: 600px;
+
+    box-shadow: -1px 12px 12px -6px rgba(0,0,0,0.5);}
 
 .jobs-table tbody tr:nth-of-type(even) {
     background-color: #f3f3f3;

@@ -117,7 +117,7 @@ async function displayJobs(token){
                 <td>${job.notes}</td>
                 <td><a href = "https://jobsprovider.herokuapp.com/jobs/getdocument/${job._id.toString()}">${doc}</a></td>
                
-                
+                <td><button onclick="uploadReport('${job._id.toString()}')">Upload</button></td>
                 <td><button class="btn btn-danger" onclick="deleteJob('${job._id.toString()}')">Delete</button></td>
               </tr>` ;
         });
