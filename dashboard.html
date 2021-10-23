@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Job-Dashboard</title>
     <link rel="stylesheet" href="css/dashboard.css">
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
     crossorigin="anonymous"/> 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
@@ -15,7 +15,7 @@
     
 </head>
 <body>
-    </body>
+    
     
     <!-- Job Listing Form -->
    
@@ -24,9 +24,11 @@
     <div class="text-right">
             <button id="logout" class="btn btn-warning">Logout</button>
         </div>
-     <section class="jobs-list" id="jobs-list">
+        
+     
     </div>
     <div class="container mt-5 p-3 w-50 ">
+        <!--
         <h1 class="text-center">Add New Job</h1>
         <form id="job-form">
             <div class="form-group">
@@ -48,12 +50,46 @@
             <button type="submit" class="btn btn-success">Add Job</button>
         </form>
     </div>    
+</section>-->
+
+<section class="edit-job d-none"  id="edit-job">
+    <form id="edit-job-form">
+        <input type="hidden" value="" id="job_id" />
+        <div class="form-group">
+            <label for="start">Start</label>
+            <input type="time" class="form-control" id="start">
+        </div>
+        <div class="form-group">
+            <label for="end">End</label>
+            <input type="time" class="form-control" id="end">
+        </div>
+        <div class="form-group">
+            <label for="breaks">Breaks On</label>
+            <input type="time" class="form-control" id="breakson">
+        </div>
+        <div class="form-group">
+            <label for="breaks">Breaks Over</label>
+            <input type="time" class="form-control" id="breaksover">
+        </div>
+        <div class="form-group">
+            <label for="details">Details</label>
+            <input type="text" class="form-control" id="details">
+        </div>
+        <div class="form-group">
+            <label for="notes">Notes</label>
+            <input type="text" class="form-control" id="notes">
+        </div>
+        <button type="submit" class="btn btn-primary">Update Job</button>
+    </form>
 </section>
+
+<section class="jobs-list" id="jobs-list">
     <table class="table" id="jobs_table">
             <thead>
                 <tr>
                 <th scope="col">Date</th>
                 <th scope="col">Start</th>
+                <th scope="col">Breaks</th>
                 <th scope="col">End</th>
                 <th scope="col">Total Time</th>
                 <th scope="col">Details</th>

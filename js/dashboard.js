@@ -55,7 +55,7 @@ class UI {
 }
 
 /** Job submission listener */
-
+/*
 document.querySelector('#job-form').addEventListener('submit', async (e) => {
     e.preventDefault();
     const start = document.querySelector('#start').value;
@@ -82,7 +82,7 @@ document.querySelector('#job-form').addEventListener('submit', async (e) => {
        }
     }
 });
-
+*/
 
 async function deleteJob(id){
     const response = await axios.delete("https://jobsprovider.herokuapp.com/jobs/"+id);
@@ -95,6 +95,8 @@ async function deleteJob(id){
 
     displayJobs(JSON.parse(localStorage.getItem("jobs-data")).token);
 }
+
+
 
 async function displayJobs(token){
     const res = await axios.post("https://jobsprovider.herokuapp.com/user/jobs?token="+token) ;
@@ -111,12 +113,13 @@ async function displayJobs(token){
           rows += `<tr>
                 <td>${job.createdAt}</td>
                 <td>${job.start}</td>
+                <td>${job.breaks[0]},${job.breaks[1]}</td>
                 <td>${job.end}</td>
                 <td>${time_diff(job.start,job.end)}</td>
                 <td>${job.details}</td>
                 <td>${job.notes}</td>
                 <td><a href = "https://jobsprovider.herokuapp.com/jobs/getdocument/${job._id.toString()}">${doc}</a></td>
-               
+                <td><button onclick="editReport('${job._id.toString()}','${job.start}','${job.breaks[0]}','${job.breaks[1]}','${job.end}','${job.details}','${job.notes}')">Edit</button></td>
                 <td><button onclick="uploadReport('${job._id.toString()}')">Upload</button></td>
                 <td><button class="btn btn-danger" onclick="deleteJob('${job._id.toString()}')">Delete</button></td>
               </tr>` ;
@@ -144,7 +147,43 @@ function time_diff(start,end){
 
 }
 
+function editReport(job_id, start,breakson,breaksover,end,details,notes)
 
+{
+    document.getElementById("edit-job").classList.remove("d-none");
+    document.getElementById("job_id").value = job_id;
+    document.getElementById("start").value = start;
+    document.getElementById("breakson").value =breakson;
+    document.getElementById("breaksover").value = breaksover;
+    document.getElementById("end").value = end;
+    document.getElementById("details").value = details;
+    document.getElementById("notes").value = notes;
+}
+
+document.getElementById("edit-job-form") &&
+document.getElementById("edit-job-form").addEventListener("submit",async (e)=>{
+    e.preventDefault();
+    const job_id =document.getElementById("job_id").value;
+    const start = document.getElementById("start").value;
+    const breakson = document.getElementById("breakson").value;
+    const breaksover =  document.getElementById("breaksover").value;
+    const end =  document.getElementById("end").value;
+    const details =  document.getElementById("details").value;
+    const notes = document.getElementById("notes").value;
+    const token = JSON.parse(localStorage.getItem("jobs-data")).token ;
+    console.log(job_id,start,breakson,breaksover,end,details,notes)
+const response = await axios.put("http://jobsprovider.herokuapp.com/jobs/updatejob",{
+    
+    job_id,start,breakson,breaksover,end,details,notes,token 
+});
+if (response.data.error){
+    console.log(response.data.error)
+}else{
+    console.log("job updated sucessfully")
+    document.getElementById("edit-job").classList.add("d-none")
+}
+
+})
 
 /** Upload Report */
 function uploadReport(id){
