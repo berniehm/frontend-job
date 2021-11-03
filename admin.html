@@ -132,7 +132,18 @@
                 <input type="hidden" value="" id="user_id" />
                 <div class="form-group">
                     <label for="details">Description</label>
-                    <input type="text" class="form-control" id="description">
+                    <select class="form-control" id="description">  
+                        <option value = "installing kitchens"> 
+                            installing kitchens
+                            
+                        </option>
+                        <option value = "repairing televison">
+                            repairing televison
+                        </option >
+                        <option value = "putting sockets">
+                            putting in sockets
+                        </option>
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="customer_name">Customer Name</label>
@@ -144,7 +155,10 @@
                 </div>
                 <div class="form-group">
                     <label for="time">Estimated time</label>
-                    <input type="text" class="form-control" id="estimated_time">
+                    <input type ="number" step=1 class="form-control" id="estimated_time">
+                       
+                
+                    
                 </div>
                 <div class="form-group">
                     <label for="empname">Employee name</label>

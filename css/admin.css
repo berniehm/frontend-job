@@ -9,15 +9,6 @@ padding :0;
 margin:0;
 }
 
-.form-group{
-  width: 360px;
-  height: 620px;
-  margin: auto;
-  background-color: white;
-  border-radius: 3px;
-}
-
-
 h1 {
   text-align: center;
   padding-top: 15px;
@@ -38,13 +29,15 @@ h4 {
 
 }
 
-.form label {
+form label {
+float: left !important;
+  color:white;
   display: flex;
   margin-top: 20px;
   font-size: 18px;
-  z-index: 500;
-  position: relative;
-  top: 100px;
+  
+  
+  
 }
   
 
