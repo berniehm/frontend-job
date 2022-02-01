@@ -1,7 +1,7 @@
 # frontend-job
 
 
-Clock in app 
+Clock in website
 
 For work places and their employees
 To clock in 
